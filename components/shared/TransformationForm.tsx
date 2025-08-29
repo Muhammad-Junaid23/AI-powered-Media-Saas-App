@@ -193,7 +193,7 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
                 <SelectTrigger className='select-field'>
                   <SelectValue placeholder='Select size' />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className='dropdown-content'>
                   {Object.keys(aspectRatioOptions).map((key) => (
                     <SelectItem key={key} value={key} className='select-item'>
                       {aspectRatioOptions[key as AspectRatioKey].label}
