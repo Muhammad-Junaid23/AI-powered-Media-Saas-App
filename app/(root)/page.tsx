@@ -16,11 +16,13 @@ const Home = async ({ searchParams }: SearchParamProps) => {
         <h1 className='home-heading'>Unleash Your Creative Vision with Imaginera</h1>
         <ul className='flex-center w-full gap-20'>
           {navLinks.slice(1, 5).map((link) => (
-            <Link key={link.route} href={link.route} className='flex-center flex-col gap-2'>
-              <li className='flex-center w-fit rounded-full bg-white p-4'>
-                <Image src={link.icon} alt='image' width={24} height={24} />
+            <Link key={link.route} href={link.route} className='flex-center flex-col gap-2 group'>
+              <li className='flex-center w-fit rounded-full p-4 transition-all duration-300 group-hover:scale-110 group-hover:shadow-cyan-400/50'>
+                <div className='cyber-gradient-primary rounded-full p-4 shadow-lg'>
+                  <Image src={link.icon} alt='image' width={24} height={24} className='brightness-200' />
+                </div>
               </li>
-              <p className='p-14-medium text-center text-white'>{link.label}</p>
+              <p className='p-14-medium text-center text-cyan-400 group-hover:text-cyan-300 transition-colors duration-300'>{link.label}</p>
             </Link>
           ))}
         </ul>

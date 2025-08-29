@@ -24,9 +24,15 @@ const MobileNav = () => {
 
           <Sheet>
             <SheetTrigger>
-              <Image src='/assets/icons/menu.svg' alt='menu' width={32} height={32} className='cursor-pointer' />
+              <Image
+                src='/assets/icons/menu.svg'
+                alt='menu'
+                width={32}
+                height={32}
+                className='cursor-pointer transition-all duration-300 hover:brightness-150'
+              />
             </SheetTrigger>
-            <SheetContent className='sheet-content sm:w-64'>
+            <SheetContent className='sheet-content sm:w-64 glass'>
               <>
                 <Logo width={152} height={23} />
 
@@ -35,9 +41,22 @@ const MobileNav = () => {
                     const isActive = link.route === pathname;
 
                     return (
-                      <li className={`${isActive && 'gradient-text'} p-18 flex whitespace-nowrap text-dark-700`} key={link.route}>
+                      <li
+                        className={`p-18 flex whitespace-nowrap transition-all duration-300 ${
+                          isActive
+                            ? 'text-cyan-400 bg-cyan-900/20 rounded-lg px-3 py-2'
+                            : 'text-cyan-300 hover:text-cyan-400 hover:bg-cyan-900/10 rounded-lg px-3 py-2'
+                        }`}
+                        key={link.route}
+                      >
                         <Link className='sidebar-link cursor-pointer' href={link.route}>
-                          <Image src={link.icon} alt='logo' width={24} height={24} />
+                          <Image
+                            src={link.icon}
+                            alt='logo'
+                            width={24}
+                            height={24}
+                            className={`transition-all duration-300 ${isActive ? 'brightness-150' : 'brightness-100'}`}
+                          />
                           {link.label}
                         </Link>
                       </li>
@@ -50,7 +69,7 @@ const MobileNav = () => {
         </SignedIn>
 
         <SignedOut>
-          <Button asChild className='button bg-purple-gradient bg-cover'>
+          <Button asChild className='button cyber-gradient-primary'>
             <Link href='/sign-in'>Login</Link>
           </Button>
         </SignedOut>

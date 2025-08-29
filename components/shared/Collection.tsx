@@ -44,7 +44,7 @@ export const Collection = ({
   return (
     <>
       <div className='collection-heading'>
-        <h2 className='h2-bold text-dark-600'>Recent Edits</h2>
+        <h2 className='h2-bold text-cyan-400'>Recent Edits</h2>
         {hasSearch && <Search />}
       </div>
 
@@ -56,7 +56,7 @@ export const Collection = ({
         </ul>
       ) : (
         <div className='collection-empty'>
-          <p className='p-20-semibold'>Empty List</p>
+          <p className='p-20-semibold text-cyan-400'>Empty List</p>
         </div>
       )}
 
@@ -67,12 +67,12 @@ export const Collection = ({
               <PaginationPrevious className='hover:bg-transparent hover:text-white' />
             </Button>
 
-            <p className='flex-center p-16-medium w-fit flex-1'>
+            <p className='flex-center p-16-medium w-fit flex-1 text-cyan-400'>
               {page} / {totalPages}
             </p>
 
             <Button
-              className='button w-32 bg-purple-gradient bg-cover text-white'
+              className='button w-32 cyber-gradient-primary'
               onClick={() => onPageChange('next')}
               disabled={Number(page) >= totalPages}
             >
@@ -88,24 +88,28 @@ export const Collection = ({
 const Card = ({ image }: { image: IImage }) => {
   return (
     <li>
-      <Link href={`/transformations/${image._id}`} className='collection-card'>
-        <CldImage
-          src={image.publicId}
-          alt={image.title}
-          width={image.width}
-          height={image.height}
-          {...image.config}
-          loading='lazy'
-          className='h-52 w-full rounded-[10px] object-cover'
-          sizes='(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw'
-        />
+      <Link href={`/transformations/${image._id}`} className='collection-card group'>
+        <div className='relative overflow-hidden rounded-[10px]'>
+          <CldImage
+            src={image.publicId}
+            alt={image.title}
+            width={image.width}
+            height={image.height}
+            {...image.config}
+            loading='lazy'
+            className='h-52 w-full object-cover transition-transform duration-500 group-hover:scale-110'
+            sizes='(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw'
+          />
+          <div className='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+        </div>
         <div className='flex-between'>
-          <p className='p-20-semibold mr-3 line-clamp-1 text-dark-600'>{image.title}</p>
+          <p className='p-20-semibold text-cyan-400'>{image.title}</p>
           <Image
             src={`/assets/icons/${transformationTypes[image.transformationType as TransformationTypeKey].icon}`}
-            alt={image.title}
+            alt={transformationTypes[image.transformationType as TransformationTypeKey].title}
             width={24}
             height={24}
+            className='transition-all duration-300 group-hover:scale-110'
           />
         </div>
       </Link>
