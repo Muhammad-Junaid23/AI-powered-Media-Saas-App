@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Button } from '../ui/button';
+import Logo from './Logo';
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -14,7 +15,7 @@ const Sidebar = () => {
     <aside className='sidebar'>
       <div className='flex size-full flex-col gap-4'>
         <Link href='/' className='sidebar-logo'>
-          <Image src='/assets/images/logo-text.svg' alt='logo' width={180} height={28} />
+          <Logo width={180} height={28} />
         </Link>
 
         <nav className='sidebar-nav'>
