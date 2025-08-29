@@ -25,12 +25,17 @@ const Sidebar = () => {
                 const isActive = link.route === pathname;
 
                 return (
-                  <li
-                    key={link.route}
-                    className={`sidebar-nav_element group ${isActive ? 'bg-purple-gradient text-white' : 'text-gray-700'}`}
-                  >
+                  <li key={link.route} className={`sidebar-nav_element group ${isActive ? 'active' : ''}`}>
                     <Link className='sidebar-link' href={link.route}>
-                      <Image src={link.icon} alt='logo' width={24} height={24} className={`${isActive && 'brightness-200'}`} />
+                      <Image
+                        src={link.icon}
+                        alt='logo'
+                        width={24}
+                        height={24}
+                        className={`transition-all duration-300 ${
+                          isActive ? 'brightness-200' : 'brightness-75 group-hover:brightness-100'
+                        }`}
+                      />
                       {link.label}
                     </Link>
                   </li>
@@ -43,26 +48,31 @@ const Sidebar = () => {
                 const isActive = link.route === pathname;
 
                 return (
-                  <li
-                    key={link.route}
-                    className={`sidebar-nav_element group ${isActive ? 'bg-purple-gradient text-white' : 'text-gray-700'}`}
-                  >
+                  <li key={link.route} className={`sidebar-nav_element group ${isActive ? 'active' : ''}`}>
                     <Link className='sidebar-link' href={link.route}>
-                      <Image src={link.icon} alt='logo' width={24} height={24} className={`${isActive && 'brightness-200'}`} />
+                      <Image
+                        src={link.icon}
+                        alt='logo'
+                        width={24}
+                        height={24}
+                        className={`transition-all duration-300 ${
+                          isActive ? 'brightness-200' : 'brightness-75 group-hover:brightness-100'
+                        }`}
+                      />
                       {link.label}
                     </Link>
                   </li>
                 );
               })}
 
-              <li className='flex-center cursor-pointer gap-2 p-4'>
+              <li className='flex-center cursor-pointer gap-2 p-4 rounded-2xl transition-all duration-300 hover:bg-cyan-900/20'>
                 <UserButton afterSignOutUrl='/' showName />
               </li>
             </ul>
           </SignedIn>
 
           <SignedOut>
-            <Button asChild className='button bg-purple-gradient bg-cover'>
+            <Button asChild className='button cyber-gradient-primary'>
               <Link href='/sign-in'>Login</Link>
             </Button>
           </SignedOut>
