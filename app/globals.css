@@ -91,7 +91,7 @@
 @layer utilities {
   /* ===== UTILITIES */
   .wrapper {
-    @apply max-w-5xl mx-auto px-5 md:px-10 w-full text-dark-400 p-16-regular;
+    @apply max-w-6xl mx-auto px-5 md:px-10 w-full text-dark-400 p-16-regular;
   }
 
   .gradient-text {
@@ -312,7 +312,7 @@
 
   /* Sidebar Component */
   .sidebar {
-    @apply hidden h-screen w-72 bg-white p-5 shadow-md shadow-purple-200/50 lg:flex;
+    @apply hidden h-screen w-64 bg-white p-5 shadow-md shadow-purple-200/50 lg:flex;
   }
 
   .sidebar-logo {
@@ -328,7 +328,7 @@
   }
 
   .sidebar-nav_element {
-    @apply flex-center p-16-semibold w-full whitespace-nowrap rounded-full bg-cover  transition-all hover:bg-purple-100 hover:shadow-inner;
+    @apply flex-center p-16-semibold w-full whitespace-nowrap rounded-2xl bg-cover  transition-all hover:bg-purple-100 hover:shadow-inner;
   }
 
   .sidebar-link {
