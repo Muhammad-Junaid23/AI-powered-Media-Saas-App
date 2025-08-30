@@ -93,7 +93,7 @@
 @layer utilities {
   /* ===== UTILITIES */
   .wrapper {
-  @apply max-w-6xl mx-auto px-5 md:px-10 w-full p-16-regular;
+  @apply max-w-7xl mx-auto px-5 md:px-10 w-full p-16-regular;
   color: var(--cyber-text-primary);
 }
 
